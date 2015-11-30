@@ -2,10 +2,37 @@
 {% block body %}
 <div class="row">
   <div class="col-sm-9 col-md-10 col-sm-push-3 col-md-push-2">
-    <h2> Main window </h2>
+    <br>
+    <a href="#" class="btn btn-default">Back </a>
+    <div class="row">
+      <br>
+      {% for r in runables %}
+      <div class="col-sm-6">
+        <a href="#">
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            <div class="media">
+              <div class="media-left">
+                  <img class="media-object" src="..." alt="...">
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading">{{ r }}</h4>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
   </div>
   <div class="col-sm-3 col-md-2 col-sm-pull-9 col-md-pull-10 sidebar-pf sidebar-pf-left">
-    sidebar
+    <h3> {{ title }} </h3>
+    <p> {{ description }} </p>
   </div>
 </div>
+
+
 {% endblock %}

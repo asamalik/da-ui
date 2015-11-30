@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row">
+  <div class="col-sm-9 col-md-10 col-sm-push-3 col-md-push-2">
+    <h3> Processing... </h3>
+    <p> Your assistant is now running. You may be asked for questions in the process </p>
+
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+        <span class="sr-only">45% Complete</span>
+      </div>
+    </div>
+
+    <h3> Information Log: </h3>
+    <div class="well">
+      Checking for something...
+    </div>
+
+
+
+
+  </div>
+  <div class="col-sm-3 col-md-2 col-sm-pull-9 col-md-pull-10 sidebar-pf sidebar-pf-left">
+    <h3> {{ title }} </h3>
+    <p> {{ description }} </p>
+  </div>
+</div>
+
+
+{% endblock %}
