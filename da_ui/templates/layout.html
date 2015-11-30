@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <title> DevAssistant Preview </title>
+  <!-- PatternFly Styles -->
+  <!-- Note: No other CSS files are needed regardless of what other JS packages located in patternfly/components that you decide to pull in -->
+  <link rel="stylesheet" href="/static/dist/css/patternfly.min.css" />
+  <link rel="stylesheet" href="/static/dist/css/patternfly-additions.min.css" />
+
+  <!-- jQuery -->
+  <script src="/static/components/jquery/dist/jquery.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="/static/components/bootstrap/dist/js/bootstrap.js"></script>
+
+  <!-- C3, D3 - Charting Libraries -->
+  <script src="/static/components/c3/c3.min.js"></script>
+  <script src="/static/components/d3/d3.min.js"></script>
+
+  <!-- Datatables, jQuery Grid Component -->
+  <!-- Note: jquery.dataTables.js must occur in the html source before patternfly*.js.-->
+  <script src="/static/components/datatables/media/js/jquery.dataTables.js"></script>
+  <script src="/static/components/datatables-colvis/js/dataTables.colVis.js"></script>
+  <script src="/static/components/datatables-colreorder/js/dataTables.colReorder.js"></script>
+
+  <!-- PatternFly Custom Componets -  Sidebar, Popovers and Datatables Customizations -->
+  <!-- Note: jquery.dataTables.js must occur in the html source before patternfly*.js.-->
+  <script src="/static/dist/js/patternfly.js"></script>
+
+  <!-- Bootstrap Combobox -->
+  <script src="/static/components/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+
+  <!-- Bootstrap Date Picker -->
+  <script src="/static/components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+  <!-- Bootstrap Select -->
+  <script src="/static/components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+  <!-- Bootstrap Switch -->
+  <script src="/static/components/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+
+  <!-- Bootstrap Touchspin -->
+  <script src="/static/components/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+
+  <!-- Bootstrap Tree View -->
+  <script src="/static/components/bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+
+  <!-- Google Code Prettify - Syntax highlighting of code snippets -->
+  <script src="/static/components/google-code-prettify/bin/prettify.min.js"></script>
+
+  <!-- MatchHeight - Used to make sure dashboard cards are the same height -->
+  <script src="/static/components/matchHeight/jquery.matchHeight.js"></script>
+
+  <!-- Angular Application? You May Want to Consider Pulling Angular-PatternFly And Angular-UI Bootstrap instead of bootstrap.js -->
+  <!-- See https://github.com/patternfly/angular-patternfly for more information -->
+
+</head>
+<body style="padding-top:50px">
+
+<nav class="navbar navbar-default navbar-pf navbar-fixed-top">
+  <div class="container-fluid">
+      <a class="navbar-text" href="#">DevAssistant Preview</a>
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="container-fluid">
+  {% block body %}{% endblock %}
+</div><!-- /container -->
+
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <p class="navbar-text"> DevAssistant version 4.2 </p>
+    <p class="navbar-text navbar-center"> <a href="#" class="navbar-link">www.devassistant.org</a></p>
+  </div><!-- /.container-fluid -->
+</nav>
+
+</body>
+</html>

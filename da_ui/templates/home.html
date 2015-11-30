@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+<br>
+<div class="row">
+  {% for r in runables %}
+  <div class="col-sm-6">
+    <a href="#">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <div class="media">
+          <div class="media-left">
+              <img class="media-object" src="..." alt="...">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{ r }}</h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+
+
+<div class="row">
+  <div class="col-sm-12">
+    <h2> Other Actions: </h2>
+  </div>
+</div>
+
+
+<div class="row">
+  {% for r in actions %}
+  <div class="col-sm-6">
+    <a href="#">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <div class="media">
+          <div class="media-left">
+              <img class="media-object" src="..." alt="...">
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{ r }}</h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
