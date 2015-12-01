@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row">
+  <div class="col-xs-12">
+    <br>
+    <a href="javascript:history.back()" class="btn btn-default"> Back </a>
+    <a href="{{ install_url }}" class="btn btn-primary pull-right" >Install</a>
+    <h2> {{ name }} <small> by Someone </h2>
+    <hr>
+
+    <div class="row">
+      <div class="col-sm-10">
+        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis massa ipsum. Integer id risus sit amet risus convallis tempor. Proin at semper massa. Quisque facilisis odio vel quam ultrices porttitor ut at mi. </p>
+        <h3> Following Assistants or Snippets are contained in this DAP: </h3>
+        <ul>
+          <li> assistants/crt/python </li>
+          <li> assistants/crt/python/django </li>
+          <li> assistants/crt/python/flask </li>
+          <li> assistants/crt/python/lib </li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

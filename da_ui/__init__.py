@@ -173,9 +173,35 @@ def running3(name, name2, name3):
 def installed_packages():
     return flask.render_template('installed-packages.html')
 
+@app.route('/installed-packages/<name>/')
+def installed_package(name):
+    uninstall_url = "/dapi/{}".format(name)
+    return flask.render_template('package-detail-installed.html', name=name, uninstall_url=uninstall_url)
+
+@app.route('/installed-packages/<name>/doc/')
+def package_doc(name):
+    return flask.render_template('package-doc.html', name=name)
+
 @app.route('/dapi/')
 def dapi():
     return flask.render_template('dapi.html')
+
+@app.route('/dapi-rated/')
+def dapi_r():
+    return flask.render_template('dapi-rated.html')
+
+@app.route('/dapi-recent/')
+def dapi_re():
+    return flask.render_template('dapi-recent.html')
+
+@app.route('/dapi-all/')
+def dapi_all():
+    return flask.render_template('dapi-all.html')
+
+@app.route('/dapi/<name>/')
+def dapi_package(name):
+    install_url = "/installed-packages/{}".format(name)
+    return flask.render_template('package-detail-dapi.html', name=name, install_url=install_url)
 
 
 @app.route('/runnable/')
