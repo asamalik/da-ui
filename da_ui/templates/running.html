@@ -6,15 +6,13 @@
     <p> Your assistant is now running. You may be asked for questions in the process </p>
 
     <div class="progress">
-      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-        <span class="sr-only">45% Complete</span>
+      <div id="progressbar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+        <span class="sr-only" id="progresstext">0% complete</span>
       </div>
     </div>
 
     <h3> Information Log: </h3>
-    <div class="well">
-      Checking for something...
-    </div>
+    <div class="well" id="log"></div>
 
 
 
@@ -25,6 +23,41 @@
     <p> {{ description }} </p>
   </div>
 </div>
+<script>
+$(function() {
+var i = 0;
+var p = 0;
+var on = 1;
 
+var interval = setInterval(function(){
+  if (on == 1) {
+    if (i < 19) {
+      $("div#log").append("INFO: Lorem ipsum, donor it amed<br />");
+    }
+    if (i == 10) {
+      $("div#log").append("INFO: Asking question<br />");
+      // on = 0;
+      // TODO: display modal with question and wait for answer
+      // https://www.patternfly.org/widgets/#modal
+      // on = 1;
+    }
+    if (i == 19) {
+      $("div#log").append("INFO: Done.<br />");
+      // TODO: display info about being finished
+    }
+    i++;
+    p = Math.min(i*5, 100);
+    $("span#progresstext").text("" + p + "% complete");
+    $("div#progressbar").attr("aria-valuenow", "" + p);
+    $("div#progressbar").attr("style", "width: " +p + "%");
+    if (i >= 20) {
+      clearInterval(interval);
+    }
+  }
+}, 1000);
+
+
+});
+</script>
 
 {% endblock %}
