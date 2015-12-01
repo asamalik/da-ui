@@ -14,7 +14,27 @@
     <h3> Information Log: </h3>
     <div class="well" id="log"></div>
 
-
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Question</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-3 control-label" for="textInput-modal-markup">What is your name?</label>
+            <div class="col-sm-9">
+              <input type="text" id="textInput-modal-markup" class="form-control"></div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Answer</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
   </div>
@@ -34,12 +54,16 @@ var interval = setInterval(function(){
     if (i < 19) {
       $("div#log").append("INFO: Lorem ipsum, donor it amed<br />");
     }
-    if (i == 10) {
+    if (i == 2) {
       $("div#log").append("INFO: Asking question<br />");
-      // on = 0;
-      // TODO: display modal with question and wait for answer
-      // https://www.patternfly.org/widgets/#modal
-      // on = 1;
+      on = 0;
+      $('#myModal').modal({
+        keyboard: false
+      })
+      $('#myModal').on('hidden.bs.modal', function (e) {
+        $("div#log").append("INFO: Answered<br />");
+        on = 1;
+      })
     }
     if (i == 19) {
       $("div#log").append("INFO: Done.<br />");
