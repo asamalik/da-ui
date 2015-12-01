@@ -14,7 +14,7 @@
     <h3> Information Log: </h3>
     <div class="well" id="log"></div>
 
-    <a href="/" id="close-button" class="btn btn-primary pull-right" style="display: none">Close</a>
+    <a href="javascript:history.back()" id="close-button" class="btn btn-danger pull-right">Abort</a>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -73,7 +73,8 @@ var interval = setInterval(function(){
     }
     if (i == 19) {
       $("div#log").append("INFO: Done.<br />");
-      $("a#close-button").attr("style", "");
+      $("a#close-button").text("Back");
+      $("a#close-button").attr("class", "btn btn-primary pull-right");
       $("p#info-text").text("Your assistant has successfully completed.");
       $("h3#info-header").text("Finished");
     }
