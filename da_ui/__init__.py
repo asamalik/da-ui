@@ -10,14 +10,74 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{0}'.format(os.path.join('..'
 db = SQLAlchemy(app)
 
 
+tree = [
+    {
+        "name": "new_project",
+        "fullname": "Create a New Project",
+        "description": "Lorem ipsum...",
+        "arguments": [],
+        "children": [
+            {
+                "name": "python",
+                "fullname": "Python",
+                "description": "Lorem ipsum...",
+                "arguments": [],
+                "children": [
+                    {
+                        "name": "django",
+                        "fullname": "Django",
+                        "description": "Lorem ipsum...",
+                        "arguments": [],
+                        "children": [],
+                    },
+                    {
+                        "name": "flask",
+                        "fullname": "Flask",
+                        "description": "Lorem ipsum...",
+                        "arguments": [],
+                        "children": [],
+                    },
+                ],
+            },
+            {
+                "name": "ruby",
+                "fullname": "Ruby",
+                "description": "Lorem ipsum...",
+                "arguments": [],
+                "children": [],
+            },
+            {
+                "name": "php",
+                "fullname": "PHP",
+                "description": "Lorem ipsum...",
+                "arguments": [],
+                "children": [],
+            },
+        ],
+    },
+    {
+        "name": "tweak_existing",
+        "fullname": "Tweak an Existing Project",
+        "description": "Lorem ipsum...",
+        "arguments": [],
+        "children": [],
+    },
+    {
+        "name": "prepare_env",
+        "fullname": "Prepare an Environment",
+        "description": "Lorem ipsum...",
+        "arguments": [],
+        "children": [],
+    },
+]
 
 
 
 @app.route('/')
 def index():
-    runables = ["Create a New Project", "Tweak an Existing Project", "Prepare an Environment", "Extras"]
+    runnables = tree
     actions = ["Installed Packages", "DAPI", "Settings"]
-    return flask.render_template('home.html', runables=runables, actions=actions)
+    return flask.render_template('home.html', runnables=runnables, actions=actions)
 
 
 @app.route('/section/')
@@ -51,4 +111,3 @@ def finished():
         runables=runables,
         title="Create a New Project",
         description="Lorem ipsum dolor sit amet...")
-
