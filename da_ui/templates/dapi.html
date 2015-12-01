@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row">
+  <div class="col-xs-12">
+    <br>
+    <a href="#" class="btn btn-default"> Back </a>
+    <input class="pull-right" placeholder="Search"></input>
+    <h2> DAPI - Package Market </h2>
+    <hr>
+    <ul class="nav nav-tabs nav-tabs-pf">
+      <li class="active"><a href="#">Top Rated</a></li>
+      <li><a href="#">Most Rated</a></li>
+      <li><a href="#">Most Recent</a></li>
+      <li><a href="#">All</a></li>
+    </ul>
+
+
+    <div class="row">
+      {% for p in ["Python", "Ruby", "PHP"] %}
+      <div class="col-sm-12">
+        <a href="#">
+        <div class="panel panel-default">
+          <div class="panel-body">
+
+            <div class="media">
+
+              <div class="media-body">
+                <h4 class="media-heading">{{ p }} <small> by Someone </small> </h4>
+              </div>
+              Lorem ipsum dolor sit amet.
+            </div>
+
+          </div>
+        </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -125,7 +125,13 @@ def runnables3(name, name2, name3):
     return flask.render_template('section.html', runnable=runnable3)
 
 
+@app.route('/installed-packages/')
+def installed_packages():
+    return flask.render_template('installed-packages.html')
 
+@app.route('/dapi/')
+def dapi():
+    return flask.render_template('dapi.html')
 
 
 @app.route('/runnable/')
