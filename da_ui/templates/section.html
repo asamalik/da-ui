@@ -6,9 +6,9 @@
     <a href="#" class="btn btn-default">Back </a>
     <div class="row">
       <br>
-      {% for r in runables %}
+      {% for r in runnable["children"] %}
       <div class="col-sm-6">
-        <a href="#">
+        <a href="{{ r["name"] }}">
         <div class="panel panel-default">
           <div class="panel-body">
 
@@ -17,7 +17,7 @@
                   <img class="media-object" src="..." alt="...">
               </div>
               <div class="media-body">
-                <h4 class="media-heading">{{ r }}</h4>
+                <h4 class="media-heading">{{ r["fullname"] }}</h4>
               </div>
             </div>
 
@@ -29,8 +29,8 @@
     </div>
   </div>
   <div class="col-sm-3 col-md-2 col-sm-pull-9 col-md-pull-10 sidebar-pf sidebar-pf-left">
-    <h3> {{ title }} </h3>
-    <p> {{ description }} </p>
+    <h3> {{ runnable["fullname"] }} </h3>
+    <p> {{ runnable["description"] }} </p>
   </div>
 </div>
 

@@ -75,18 +75,28 @@ tree = [
 
 @app.route('/')
 def index():
-    runnables = tree
+    runnable = tree
     actions = ["Installed Packages", "DAPI", "Settings"]
-    return flask.render_template('home.html', runnables=runnables, actions=actions)
+    return flask.render_template('home.html', runnable=runnable, actions=actions)
+
+@app.route('/runnables/<name>/')
+def runnables(name):
+    index = next(index for (index, d) in enumerate(tree) if d["name"] == name)
+    runnable = tree[index]
+    return flask.render_template('section.html', runnable=runnable)
+
+@app.route('/runnables/<name>/<name2>/')
+def runnables2(name, name2):
+    index = next(index for (index, d) in enumerate(tree) if d["name"] == name)
+    runnable = tree[index]
+
+    index2 = next(index2 for (index2, d) in enumerate(runnable["children"]) if d["name"] == name2)
+    runnable2 = runnable["children"][index2]
+    return flask.render_template('section.html', runnable=runnable2)
 
 
-@app.route('/section/')
-def section():
-    runables = ["Python", "Node.js", "Ruby", "PHP"]
-    return flask.render_template('section.html',
-        runables=runables,
-        title="Create a New Project",
-        description="Lorem ipsum dolor sit amet...")
+
+
 
 @app.route('/runnable/')
 def runnable():
