@@ -51,6 +51,10 @@ var i = 0;
 var p = 0;
 var on = 1;
 
+$(window).bind("beforeunload",function(event) {
+    if (i < 20) return "Assistant is running, if you go away, it will be aborted.";
+});
+
 var interval = setInterval(function(){
   if (on == 1) {
     if (i < 19) {
