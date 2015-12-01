@@ -35,7 +35,7 @@
 <div class="row">
   {% for r in actions %}
   <div class="col-sm-6">
-    <a href="#">
+    <a href="{{r["name"]}}">
     <div class="panel panel-default">
       <div class="panel-body">
 
@@ -44,7 +44,7 @@
               <img class="media-object" src="..." alt="...">
           </div>
           <div class="media-body">
-            <h4 class="media-heading">{{ r }}</h4>
+            <h4 class="media-heading">{{ r["fullname"] }}</h4>
           </div>
         </div>
 

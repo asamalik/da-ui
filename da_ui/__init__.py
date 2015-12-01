@@ -81,13 +81,29 @@ tree = [
     },
 ]
 
+actions_tree = [
+    {
+        "name": "installed-packages",
+        "fullname": "Installed Packages",
+        "description": "Lorem ipsum...",
+        "arguments": [],
+        "children": [],
+    },
+    {
+        "name": "dapi",
+        "fullname": "DAPI - Package Market",
+        "description": "Lorem ipsum...",
+        "arguments": [],
+        "children": [],
+    },
+]
 
 
 @app.route('/')
 def index():
     runnable = tree
     actions = ["Installed Packages", "DAPI", "Settings"]
-    return flask.render_template('home.html', runnable=runnable, actions=actions)
+    return flask.render_template('home.html', runnable=runnable, actions=actions_tree)
 
 @app.route('/runnables/<name>/')
 def runnables(name):
