@@ -119,8 +119,10 @@ def runnables2(name, name2):
     index2 = next(index2 for (index2, d) in enumerate(runnable["children"]) if d["name"] == name2)
     runnable2 = runnable["children"][index2]
 
+    run_url = "/running/{}/{}/".format(name, name2)
+
     if runnable2["arguments"]:
-        return flask.render_template('runnable.html', runnable=runnable2)
+        return flask.render_template('runnable.html', runnable=runnable2, run_url=run_url)
 
     return flask.render_template('section.html', runnable=runnable2)
 
@@ -135,10 +137,36 @@ def runnables3(name, name2, name3):
     index3 = next(index3 for (index3, d) in enumerate(runnable2["children"]) if d["name"] == name3)
     runnable3 = runnable2["children"][index3]
 
+    run_url = "/running/{}/{}/{}/".format(name, name2, name3)
+
     if runnable3["arguments"]:
-        return flask.render_template('runnable.html', runnable=runnable3)
+        return flask.render_template('runnable.html', runnable=runnable3, run_url=run_url)
 
     return flask.render_template('section.html', runnable=runnable3)
+
+
+@app.route('/running/<name>/<name2>/')
+def running2(name, name2):
+    index = next(index for (index, d) in enumerate(tree) if d["name"] == name)
+    runnable = tree[index]
+
+    index2 = next(index2 for (index2, d) in enumerate(runnable["children"]) if d["name"] == name2)
+    runnable2 = runnable["children"][index2]
+
+    return flask.render_template('running.html', runnable=runnable2)
+
+@app.route('/running/<name>/<name2>/<name3>/')
+def running3(name, name2, name3):
+    index = next(index for (index, d) in enumerate(tree) if d["name"] == name)
+    runnable = tree[index]
+
+    index2 = next(index2 for (index2, d) in enumerate(runnable["children"]) if d["name"] == name2)
+    runnable2 = runnable["children"][index2]
+
+    index3 = next(index3 for (index3, d) in enumerate(runnable2["children"]) if d["name"] == name3)
+    runnable3 = runnable2["children"][index3]
+
+    return flask.render_template('running.html', runnable=runnable3)
 
 
 @app.route('/installed-packages/')
