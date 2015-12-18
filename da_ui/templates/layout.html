@@ -65,10 +65,10 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-  </div>
-  <div class="container-fluid">
-      <a class="navbar-text" href="/">DevAssistant Preview</a>
+<div class="container-fluid">
+      <a class="navbar-text" href="/" style="margin: 8px;"><i class="fa fa-2x fa-cube"></i> <span style="font-size: 150%; text-decoration: none;">Dev<span style="font-weight: bold;">Assistant</span></span></a>
   </div><!-- /.container-fluid -->
+  </div>
 </nav>
 
 
@@ -79,10 +79,27 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
   <div class="container-fluid">
-    <p class="navbar-text"> DevAssistant version 4.2 </p>
+    <p class="navbar-text"><i class="fa fa-cube"></i> DevAssistant version 4.2 </p>
     <p class="navbar-text navbar-center"> <a href="#" class="navbar-link">www.devassistant.org</a></p>
   </div><!-- /.container-fluid -->
 </nav>
+
+<script type="text/javascript">
+	/*$(document).ready(function() {
+		$('a').bind('click', function(e) {
+			if ($(this).attr('href').indexOf('history.back()') > -1) {
+				e.preventDefault();
+				var pathname = window.location.pathname;
+				if(pathname.substr(-1) === '/') {
+					pathname = pathname.substr(0, pathname.length - 1);
+				}
+				var levelup = pathname.split("/"); 
+				levelup.pop();
+				window.location.href = levelup.join("/") + "/";
+			}
+		});
+	});*/
+</script>
 
 </body>
 </html>

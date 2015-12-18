@@ -14,7 +14,11 @@
 
             <div class="media">
               <div class="media-left">
-                  <img class="media-object" src="..." alt="...">
+                  {% if r["img"] %}
+		      <img class="media-object" src="{{ r['img'] }}" style="width: 20px;" alt="r['tooltip']">
+		    {% else %}
+		      <img class="media-object" src="..." alt="...">
+		    {% endif %}
               </div>
               <div class="media-body">
                 <h4 class="media-heading">{{ r["fullname"] }}</h4>
@@ -29,7 +33,10 @@
     </div>
   </div>
   <div class="col-sm-3 col-md-2 col-sm-pull-9 col-md-pull-10 sidebar-pf sidebar-pf-left">
-    <h3> {{ runnable["fullname"] }} </h3>
+    <h3>{% if runnable["img"] %}
+		<img class="media-object" src="{{ runnable['img'] }}" style="width: 20px;float: left;" alt="runnable['tooltip']">
+	{% endif %}
+	{{ runnable.fullname }} </h3>
     <p> {{ runnable["description"] }} </p>
   </div>
 </div>

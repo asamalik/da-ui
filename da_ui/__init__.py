@@ -14,19 +14,24 @@ tree = [
     {
         "name": "new_project",
         "fullname": "Create a New Project",
-        "description": "Lorem ipsum...",
+        "description": "Which technology do you plan yo use for your next project?",
         "arguments": [],
+	"icon": "fa-plus",
         "children": [
             {
                 "name": "python",
                 "fullname": "Python",
-                "description": "Lorem ipsum...",
+                "description": "Great choice! Do you plan to use any framework?",
+		"img": "/static/dist/img/python.png",
+		"tooltip": "Lorem ipsum...",
                 "arguments": [],
                 "children": [
                     {
                         "name": "django",
                         "fullname": "Django",
-                        "description": "Lorem ipsum...",
+                        "description": "Looks like you prefer high-level frameworks which enable you to do rapid developement. Please configure following settings to prepare your environment.",
+			"img": "/static/dist/img/django.png",
+			"tooltip": "Lorem ipsum...",
                         "arguments": [
                             {
                                 "name": "testing",
@@ -39,6 +44,8 @@ tree = [
                         "name": "flask",
                         "fullname": "Flask",
                         "description": "Lorem ipsum...",
+			"img": "/static/dist/img/flask.png",
+			"tooltip": "Lorem ipsum...",
                         "arguments": [
                             {
                                 "name": "testing",
@@ -53,6 +60,8 @@ tree = [
                 "name": "ruby",
                 "fullname": "Ruby",
                 "description": "Lorem ipsum...",
+		"img": "/static/dist/img/ruby.png",
+		"tooltip": "Lorem ipsum...",
                 "arguments": [],
                 "children": [],
             },
@@ -60,6 +69,8 @@ tree = [
                 "name": "php",
                 "fullname": "PHP",
                 "description": "Lorem ipsum...",
+		"img": "/static/dist/img/php.png",
+		"tooltip": "Lorem ipsum...",
                 "arguments": [],
                 "children": [],
             },
@@ -69,6 +80,7 @@ tree = [
         "name": "tweak_existing",
         "fullname": "Tweak an Existing Project",
         "description": "Lorem ipsum...",
+	"icon": "fa-pencil",
         "arguments": [],
         "children": [],
     },
@@ -76,6 +88,7 @@ tree = [
         "name": "prepare_env",
         "fullname": "Prepare an Environment",
         "description": "Lorem ipsum...",
+	"icon": "fa-gears",
         "arguments": [],
         "children": [],
     },
@@ -86,6 +99,7 @@ actions_tree = [
         "name": "installed-packages",
         "fullname": "Installed Packages",
         "description": "Lorem ipsum...",
+	"icon": "fa-flask",
         "arguments": [],
         "children": [],
     },
@@ -93,6 +107,7 @@ actions_tree = [
         "name": "dapi",
         "fullname": "DAPI - Package Market",
         "description": "Lorem ipsum...",
+	"icon": "fa-shopping-cart",
         "arguments": [],
         "children": [],
     },
