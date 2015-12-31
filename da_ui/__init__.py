@@ -63,7 +63,20 @@ tree = [
 		"img": "/static/dist/img/ruby.png",
 		"tooltip": "Lorem ipsum...",
                 "arguments": [],
-                "children": [],
+                "children": [
+                    {
+                        "name": "rails",
+                        "fullname": "Ruby on Rails",
+                        "description": "Lorem ipsum...",
+                        "arguments": [
+                            {
+                                "name": "testing",
+                                "help": "Just a testing argument"
+                            }
+                        ],
+                        "children": [],
+                    },
+                ],
             },
             {
                 "name": "php",
@@ -72,7 +85,20 @@ tree = [
 		"img": "/static/dist/img/php.png",
 		"tooltip": "Lorem ipsum...",
                 "arguments": [],
-                "children": [],
+                "children": [
+                    {
+                        "name": "lamp",
+                        "fullname": "LAMP",
+                        "description": "Lorem ipsum...",
+                        "arguments": [
+                            {
+                                "name": "testing",
+                                "help": "Just a testing argument"
+                            }
+                        ],
+                        "children": [],
+                    },
+                ],
             },
         ],
     },
