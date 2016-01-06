@@ -14,7 +14,8 @@
     <h3> Information Log: </h3>
     <div class="well" style="overflow: hidden"> <div style="overflow-y: scroll; height: 250px" id="log"></div></div>
 
-    <a href="javascript:history.back()" id="close-button" class="btn btn-danger pull-right">Abort</a>
+    <a id="close-button" class="btn btn-danger pull-right close-button">Abort</a>
+    <a id="back-button" class="btn btn-default pull-right" href="javascript:history.back()"> Back </a>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -38,6 +39,27 @@
   </div>
 </div>
 
+<div class="modal fade" id="reallyAbort" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Abort action?</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-8 control-label" for="textInput-modal-markup">Really abort creating new project?</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="yesAbort" type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+        <button id="noAbort" type="button" class="btn btn-default" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
   </div>
   <div class="col-sm-3 col-md-2 col-sm-pull-9 col-md-pull-10 sidebar-pf sidebar-pf-left">
@@ -54,32 +76,62 @@ var i = 0;
 var p = 0;
 var on = 1;
 
+$("div.progress").show();
+$("a#back-button").hide();
+
 $(window).bind("beforeunload",function(event) {
     if (i < 20) return "Assistant is running, if you go away, it will be aborted.";
 });
 
 var interval = setInterval(function(){
+
   if (on == 1) {
+  
+    $("a.close-button").click(function(){
+      on = 0;
+      
+      $("#reallyAbort").modal({
+        keyboard: false
+      });
+          
+      $("#yesAbort").click(function(){
+        clearInterval(interval);
+        $("a#back-button").show();
+        $("a#close-button").hide();
+        $("h3#info-header").text("Aborted");
+        $("p#info-text").text("Your assistant has not completed!");
+        $("p#info-text").addClass("aborted");
+        i = 0;
+      });
+      
+      $("#reallyAbort").on("hidden.bs.modal", function (e) {
+        on = 1;
+      });
+    });
+  
     if (i < 19) {
       $("div#log").append("INFO: Lorem ipsum, donor it amed<br />");
     }
     if (i == 2) {
       $("div#log").append("INFO: Asking question<br />");
       on = 0;
-      $('#myModal').modal({
+      $("#myModal").modal({
         keyboard: false
-      })
-      $('#myModal').on('hidden.bs.modal', function (e) {
+      });
+      $("#myModal").on("hidden.bs.modal", function (e) {
         $("div#log").append("INFO: Answered<br />");
         on = 1;
-      })
+      });
     }
     if (i == 19) {
       $("div#log").append("INFO: Done.<br />");
-      $("a#close-button").text("Back");
-      $("a#close-button").attr("class", "btn btn-primary pull-right");
+      $("a#close-button").hide();
+      $("a#back-button").show();
+      $("a#back-button").attr("class", "btn btn-primary pull-right");
       $("p#info-text").text("Your assistant has successfully completed.");
+      $("p#info-text").addClass("success");
       $("h3#info-header").text("Finished");
+      $("div.progress").hide();
     }
     i++;
     p = Math.min(i*5, 100);
@@ -90,6 +142,8 @@ var interval = setInterval(function(){
       clearInterval(interval);
     }
   }
+  
+  
 }, 1000);
 
 

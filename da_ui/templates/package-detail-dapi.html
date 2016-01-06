@@ -4,9 +4,22 @@
   <div class="col-xs-12">
     <br>
     <a href="/dapi/" class="btn btn-default"> Back </a>
-    <a href="{{ install_url }}" class="btn btn-primary pull-right" >Install</a>
+    <a href="/" class="btn btn-default"> Home </a>
     <h2><img alt="media-object" class="media-object" src="/static/dist/img/{{ name|lower }}.png" style="width: 20px;float: left;" > {{ name }} <small> by Someone</small> </h2>
     <hr>
+
+<div class="modal fade" id="installSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Package succesfully installed</h4>
+      </div>
+      <div class="modal-footer">
+        <button id="okInstall" type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
 
     <div class="row">
       <div class="col-sm-10">
@@ -23,7 +36,28 @@
       </div>
     </div>
   </div>
+  
+  <a id="install-button" href="{{ install_url }}" class="btn btn-primary pull-right" style="margin: 20px; ">Install</a>
 </div>
 
+<script>
+$(function() {
+
+  $("a#install-button").click(function(e) {
+    e.preventDefault();
+    
+    $("#installSuccess").modal({
+      keyboard: false
+    });
+      
+    $("#installSuccess").on("hidden.bs.modal", function (e) {});
+      
+    $("#okInstall").click(function() {
+      window.location = $("a#install-button").attr("href");
+    });
+  });
+
+});
+</script>
 
 {% endblock %}

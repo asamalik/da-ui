@@ -150,6 +150,10 @@ def index():
 def runnables(name):
     index = next(index for (index, d) in enumerate(tree) if d["name"] == name)
     runnable = tree[index]
+
+    if name == "new_project":
+        return flask.render_template('section.html', runnable=runnable, step="1/3")
+
     return flask.render_template('section.html', runnable=runnable)
 
 @app.route('/runnables/<name>/<name2>/')
@@ -163,9 +167,9 @@ def runnables2(name, name2):
     run_url = "/running/{}/{}/".format(name, name2)
 
     if runnable2["arguments"]:
-        return flask.render_template('runnable.html', runnable=runnable2, run_url=run_url)
+        return flask.render_template('runnable.html', runnable=runnable2, run_url=run_url, title=runnable, step="2/3")
 
-    return flask.render_template('section.html', runnable=runnable2)
+    return flask.render_template('section.html', runnable=runnable2, title=runnable, step="2/3")
 
 @app.route('/runnables/<name>/<name2>/<name3>/')
 def runnables3(name, name2, name3):
@@ -181,9 +185,9 @@ def runnables3(name, name2, name3):
     run_url = "/running/{}/{}/{}/".format(name, name2, name3)
 
     if runnable3["arguments"]:
-        return flask.render_template('runnable.html', runnable=runnable3, run_url=run_url)
+        return flask.render_template('runnable.html', runnable=runnable3, run_url=run_url, title=runnable, step="3/3")
 
-    return flask.render_template('section.html', runnable=runnable3)
+    return flask.render_template('section.html', runnable=runnable3, title=runnable, step="3/3")
 
 
 @app.route('/running/<name>/<name2>/')
