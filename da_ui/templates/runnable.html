@@ -4,8 +4,8 @@
   <div class="col-sm-9 col-md-10 col-sm-push-3 col-md-push-2">
     <br>
     <form class="form-horizontal" id="myform" action="{{ run_url }}" method="GET">
-    <a href="javascript:history.back()" class="btn btn-default"> Back </a>
     <a href="/" class="btn btn-default"> Home </a>
+    <a href="javascript:history.back()" class="btn btn-default"> Back </a>
     <br>
     <br>
 
@@ -47,15 +47,15 @@
   <div class="col-sm-3 col-md-2 col-sm-pull-9 col-md-pull-10 sidebar-pf sidebar-pf-left">
   {% if title %}
   <h3>{{ title.fullname }}</h3>
-  {% if step %}
-  <h4>Step {{ step }}</h4>
-  {% endif %}
   {% endif %}
     <h3>{% if runnable["img"] %}
 		<img class="media-object" src="{{ runnable['img'] }}" style="width: 20px;float: left;" alt="r['tooltip']">
 	{% endif %}
 	{{ runnable.fullname }} </h3>
     <p> {{ runnable.description }} </p>
+  {% if step %}
+  <h4>Step {{ step }}</h4>
+  {% endif %}
   </div>
 </div>
 
